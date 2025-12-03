@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import Menu from '../components/Menu';
+
+
+
 
 const Home = () => {
     return ( <>
 
-    <div></div>
-    <Nav img={home}  title="Dashboard" />
-    <Nav img={proj_manage}  title="Project management" />
+    <Menu />
+   
     
     
     

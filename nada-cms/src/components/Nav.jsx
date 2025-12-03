@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import 'Nav.css';
+import './Nav.css';
 
 const Nav = (props) => {
     return ( <>
@@ -9,8 +9,6 @@ const Nav = (props) => {
                 <img src={props.img} alt='Home Dashboard' />
                 <p className='title'>{props.title}</p>
             </div>
-    
-    
     
     </> );
 }

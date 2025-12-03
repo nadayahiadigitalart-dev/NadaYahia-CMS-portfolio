@@ -1,6 +1,6 @@
 // import React, { Component } from 'react';
 import React, { useState } from "react";
-import l from "../assets/nadayahia- logo.png";
+import l from "../assets/nadayahia-logo.png";
 // import ko from "../assets/Home_dashboard.png";
 
 import './Login.css';
