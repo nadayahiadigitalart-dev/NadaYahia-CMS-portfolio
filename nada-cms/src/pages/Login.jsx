@@ -4,6 +4,7 @@ import l from "../assets/nadayahia- logo.png";
 // import ko from "../assets/Home_dashboard.png";
 
 import './Login.css';
+import { Link } from "react-router-dom";
 
 
 
@@ -59,7 +60,9 @@ const Login = () => {
     {/* <textarea placeholder="Write your message"></textarea> */}
   {/* </label> */}
   {/* <br /> */}
-  <button type="submit">Login</button>
+ 
+  <button type="button">Login</button> 
+   {/* <Link link:Home /> */}
 </form>
 
         </section>
