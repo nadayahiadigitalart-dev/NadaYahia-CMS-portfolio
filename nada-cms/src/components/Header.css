@@ -1,0 +1,28 @@
+.welc{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+    width: 100%;
+    /* gap: 50px; */
+}
+
+.p{
+    color: #FFF;
+font-feature-settings: 'liga' off, 'clig' off;
+font-family: Poppins;
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

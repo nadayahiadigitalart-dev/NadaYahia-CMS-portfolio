@@ -20,7 +20,7 @@ import './Menu.css';
 const Menu = () => {
     return ( <>
 
-    <div className='bg'>
+  
 
     <div className='menu'>
         <img src={Logo} alt='nada logo'/>
@@ -44,7 +44,7 @@ const Menu = () => {
 
 
     </div>
-    </div>
+    
     
     
     
