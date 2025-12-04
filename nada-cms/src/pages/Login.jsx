@@ -6,7 +6,7 @@ import l from "../assets/nadayahia-logo.png";
 import './Login.css';
 import { Link } from "react-router-dom";
 
-
+<meta name="robots" content="noindex, nofollow"></meta>
 
 
 const Login = () => {
