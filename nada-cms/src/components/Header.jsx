@@ -11,7 +11,7 @@ const Header = () => {
 
     <div className='welc'> 
         <p className="p">Welcome, Nada!</p>
-        <div className='row'>
+        <div className='roww'>
         <p className='date'>Wed, 3 Dec</p> 
         <img src={Contact} alt='icons_message' />
         <img src={Noti} alt='icon_planner' />

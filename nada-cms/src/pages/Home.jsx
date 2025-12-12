@@ -8,18 +8,21 @@ import './Home.css';
 import VerySmallCard from '../components/VerySmallCard';
 import Card from '../components/Card';
 
+import s from '../assets/Chart 6.png';
+import s2 from '../assets/Chart 7.png';
+import s3 from '../assets/Chart 8.png';
 
 const Home = () => {
     return ( <>
 
       <div className='bg'>
-<div className='row'>
-<div className='fixed'>
+<section className='bigrow'>
+{/* <div className='fixed'> */}
     <Menu />
-   </div>
+   {/* </div> */}
 
 <div className='seventy5'>
-   <div className='col'>
+   {/* <div className='col'> */}
 
    <Header />
 
@@ -55,13 +58,12 @@ USA — 720</p>
 
    </div>
 
-   </div>
+   {/* </div> */}
 </div>
 
-   </div>
+   </section>
     
     </div>
-    
     
     </> );
 }

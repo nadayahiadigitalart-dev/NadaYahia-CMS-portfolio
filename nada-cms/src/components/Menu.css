@@ -8,6 +8,13 @@ align-items: center;
 justify-content: flex-start;
 gap: 20px;
 
+position: fixed;
+
+  top: 0;
+    left: 0;
+     width: 25%;   
+  z-index: 0; 
+
 border-radius: 0 0 20px 0;
 border: 1px solid rgba(177, 177, 177, 0.16);
 background: rgba(39, 39, 39, 0.65);

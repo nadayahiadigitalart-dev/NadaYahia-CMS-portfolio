@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import src from './../../node_modules/react-scripts/lib/react-app.d';
+
 
 import stat from "../assets/Chart 6.png";
 
