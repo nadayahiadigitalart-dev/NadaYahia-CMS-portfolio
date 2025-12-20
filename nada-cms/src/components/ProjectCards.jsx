@@ -6,6 +6,7 @@ import './ProjectCards.css';
 import i1 from '../assets/Vector.png';
 import i2 from '../assets/eye-line.png';
 import i3 from '../assets/delete-bin-line.png';
+import { Link } from 'react-router-dom';
 
 
 const ProjectCards = (props) => {
@@ -16,7 +17,9 @@ const ProjectCards = (props) => {
         <p className='t'>{props.t}</p>
         <p className='pr'>{props.par}</p>
         <div className='row_icons'>
-            <img src={i1} />
+           <Link to="/projectdetails" >
+           <img src={i1} />
+           </Link>
             <img src={i2} />
             <img src={i3} />
 
