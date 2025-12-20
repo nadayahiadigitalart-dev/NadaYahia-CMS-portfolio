@@ -62,7 +62,7 @@ const Login = () => {
   {/* </label> */}
   {/* <br /> */}
  
-  <Link to="/home" ><button type="button" to="/home">Login</button> </Link>
+  <Link to="/home" ><button className="button" type="button" to="/home">Login</button> </Link>
    {/* <Link link:Home /> */}
 </form>
 

@@ -159,7 +159,7 @@ font-weight: 400;
 line-height: normal;
 }
 
-button{
+.button{
     display: flex;
 padding: 10px 108px;
 justify-content: center;

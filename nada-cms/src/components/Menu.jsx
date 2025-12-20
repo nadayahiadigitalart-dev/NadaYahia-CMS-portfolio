@@ -31,7 +31,7 @@ const Menu = () => {
     <Nav img={pages}  title="Pages management" to="/" />
     <Nav img={categories}  title="Categories" to="/" />
     <Nav img={Blog}  title="Blog management" to="/" />
-    <Nav img={Contact}  title="Contact messages" to="/" />
+    <Nav img={Contact}  title="Contact messages" to="/ContactMessages" />
     <br />
     <br />
     <br />
