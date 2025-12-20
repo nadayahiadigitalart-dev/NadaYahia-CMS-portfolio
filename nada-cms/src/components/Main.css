@@ -1,0 +1,15 @@
+.main-page {
+  width: 100%;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.r{
+      display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  /* align-items: center; */
+}

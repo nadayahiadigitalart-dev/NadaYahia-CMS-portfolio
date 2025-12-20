@@ -26,19 +26,19 @@ const Menu = () => {
         <img src={Logo} alt='nada logo'/>
 
         <div className='nav'>
-             <Nav img={home}  title="Dashboard" />
-    <Nav img={proj_manage}  title="Project management" />
-    <Nav img={pages}  title="Pages management" />
-    <Nav img={categories}  title="Categories" />
-    <Nav img={Blog}  title="Blog management" />
-    <Nav img={Contact}  title="Contact messages" />
+             <Nav img={home}  title="Dashboard" to="/home" />
+    <Nav img={proj_manage}  title="Project management" to="/projects" />
+    <Nav img={pages}  title="Pages management" to="/" />
+    <Nav img={categories}  title="Categories" to="/" />
+    <Nav img={Blog}  title="Blog management" to="/" />
+    <Nav img={Contact}  title="Contact messages" to="/" />
     <br />
     <br />
     <br />
     <br />
-    <Nav img={Noti}  title="planner" />
-    <Nav img={Set}  title="Profile/Settings" />
-    <Nav img={log}  title="Log out" />
+    <Nav img={Noti}  title="planner" to="/" />
+    <Nav img={Set}  title="Profile/Settings" to="/" />
+    <Nav img={log}  title="Log out" to="/" />
 
         </div>
 

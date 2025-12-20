@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import src from './../../node_modules/react-scripts/lib/react-app.d';
+// import src from './../../node_modules/react-scripts/lib/react-app.d';
 
 import './ProjectCards.css';
 
@@ -14,6 +14,7 @@ const ProjectCards = (props) => {
     <div className='proj_card'>
         <img src={props.img} alt='projects' />
         <p className='t'>{props.t}</p>
+        <p className='pr'>{props.par}</p>
         <div className='row_icons'>
             <img src={i1} />
             <img src={i2} />

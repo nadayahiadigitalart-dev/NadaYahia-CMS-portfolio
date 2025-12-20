@@ -5,6 +5,7 @@ import l from "../assets/nadayahia-logo.png";
 
 import './Login.css';
 import { Link } from "react-router-dom";
+// import Link from './../components/Link';
 
 <meta name="robots" content="noindex, nofollow"></meta>
 
@@ -61,7 +62,7 @@ const Login = () => {
   {/* </label> */}
   {/* <br /> */}
  
-  <button type="button">Login</button> 
+  <Link to="/home" ><button type="button" to="/home">Login</button> </Link>
    {/* <Link link:Home /> */}
 </form>
 
