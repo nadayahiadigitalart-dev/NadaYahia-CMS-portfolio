@@ -21,7 +21,7 @@ const Home = () => {
     <Menu />
    {/* </div> */}
 
-<div className='seventy5'>
+<div className='seventy'>
    {/* <div className='col'> */}
 
    <Header />
@@ -52,9 +52,9 @@ USA — 720</p>
             <img src={m} alt='map' />
     </div>
 
-    <Card stat={s} t="Project Views" />
+    {/* <Card stat={s} t="Project Views" />
     <Card stat={s2} t="Blogs Views" />
-    <Card stat={s3} t="Total visitors" />
+    <Card stat={s3} t="Total visitors" /> */}
 
    </div>
 

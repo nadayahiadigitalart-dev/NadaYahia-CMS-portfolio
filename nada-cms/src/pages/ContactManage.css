@@ -23,11 +23,11 @@
 }
 
 
-.contact_menu {
+/* .contact_menu {
   display: flex;
   justify-content: flex-end;
   padding: 20px;
-}
+} */
 
 .dropdown {
   position: relative;
@@ -71,7 +71,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 9rem;
+    gap: 5rem;
+  padding: 20px;
+
 }
 
 .menu_t1{

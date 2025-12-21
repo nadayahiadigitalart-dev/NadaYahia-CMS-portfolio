@@ -23,7 +23,7 @@
 }
 
 .bigrow{
-    /* width: 100%; */
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -42,8 +42,9 @@ font-weight: 500;
 line-height: normal;
 }
 
-.seventy5{
-    /* width: 75%;  */
+.seventy{
+  margin-left: 320px;
+    width: 75%; 
     display: flex;
     flex-direction: column;
     align-items: center;

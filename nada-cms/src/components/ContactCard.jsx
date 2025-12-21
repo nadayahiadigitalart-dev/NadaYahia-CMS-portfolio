@@ -16,7 +16,7 @@ const ContactCard = (props) => {
 
         </div>
             <p className='font'>{props.date}</p>
-            <div className='font'>{props.status}</div>
+            <div className='font2'>{props.status}</div>
             <p className='font'>{props.sub}</p>
             <button className='buttonn'>View</button>
 
@@ -27,7 +27,10 @@ const ContactCard = (props) => {
                 <img src={i3} />
     
             </div>
+
     </div>
+
+    
     
     
     
