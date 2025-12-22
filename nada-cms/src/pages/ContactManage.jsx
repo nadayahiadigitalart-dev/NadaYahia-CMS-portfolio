@@ -1,12 +1,38 @@
-import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+
 
 import "./ContactManage.css";
 import Header from "../components/Header";
 import Menu from "../components/Menu";
 import ContactCard from "../components/ContactCard";
 import contImg from "../assets/Img.png";
+import { Supabase } from "../Supabase";
+
+
 
 const ContactManage = () => {
+const {id} = useParams()
+const [data, setData] = useState("");
+
+useEffect(()=>{
+  async function CallRow() {
+    const res = await Supabase.from("Contact Messages").select("*").eq("id",id);
+    setData(res.data[0]);
+    
+  //  if (error) {
+  //     console.error("Supabase error:", error);
+  //   } else {
+  //     console.log("Supabase data:", data);
+  //     setData(data);
+  //   }
+  }
+
+  if (id) CallRow();
+
+},[id])
+
+
   const [filter, setFilter] = useState("All");
   const [open, setOpen] = useState(false);
 
@@ -63,16 +89,16 @@ const ContactManage = () => {
 
             <ContactCard 
             img={contImg}
-            alt="sender_email"
-            name="Ahmed Aly"
-            email="ahmedy98@gmail.com"
-            date="23 Nov 2025 – 15:45"
-            status="Unread"
-            sub="Inquiry About Your..."
+    alt={data.sender_email}
+    name={data.sender_name}
+    email={data.sender_email}
+    date={data.created_at}
+    status={data.status || "Unread"}
+    sub={data.subject}
             />
             
 
-          <ContactCard 
+          {/* <ContactCard 
             img={contImg}
             alt="sender_email"
             name="Ahmed Aly"
@@ -80,44 +106,19 @@ const ContactManage = () => {
             date="23 Nov 2025 – 15:45"
             status="Unread"
             sub="Inquiry About Your..."
-            />
+            /> */}
 
-           <ContactCard 
-            img={contImg}
-            alt="sender_email"
-            name="Ahmed Aly"
-            email="ahmedy98@gmail.com"
-            date="23 Nov 2025 – 15:45"
-            status="Unread"
-            sub="Inquiry About Your..."
-            />
+           
 
-            <ContactCard 
-            img={contImg}
-            alt="sender_email"
-            name="Ahmed Aly"
-            email="ahmedy98@gmail.com"
-            date="23 Nov 2025 – 15:45"
-            status="Unread"
-            sub="Inquiry About Your..."
-            />
-
-            <ContactCard 
-            img={contImg}
-            alt="sender_email"
-            name="Ahmed Aly"
-            email="ahmedy98@gmail.com"
-            date="23 Nov 2025 – 15:45"
-            status="Unread"
-            sub="Inquiry About Your..."
-            />
-            </div>
-
-
+</div>
           </div>
         </section>
-        
+            <br></br>
+    <br></br>
+    <br></br>
       </div>
+
+  
     </>
   );
 };

@@ -1,0 +1,47 @@
+.mesg{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.row_info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.tit{
+    color: #767676;
+font-family: Poppins;
+font-size: 0.75rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.5rem; /* 200% */
+}
+
+.text{
+    color: #A6A6A6;
+font-family: Poppins;
+font-size: 0.75rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.3125rem; /* 175% */
+}
+
+.but{
+    border-radius: 1.25rem;
+border: 1px solid #0E8C88;
+background: rgba(9, 114, 110, 0.64);
+
+display: flex;
+width: 11.125rem;
+height: 2.1875rem;
+padding: 0.625rem 6.75rem;
+justify-content: center;
+align-items: center;
+gap: 0.625rem;
+}

@@ -16,7 +16,7 @@ const Home = () => {
     return ( <>
 
       <div className='bg'>
-<section className='bigrow'>
+{/* <section className='bigrow'> */}
 {/* <div className='fixed'> */}
     <Menu />
    {/* </div> */}
@@ -35,35 +35,68 @@ const Home = () => {
 
    </div>
 
-      <div className='bigcard'>
+   {/* <br></br> */}
+
+      {/* <div className='bigcard'> */}
+      <div className='map'>
+
         <div className='col'>
             <p className='bf'>
 Global Visitor Distribution<br/>
 Australia — 1.86k Visitors
             </p>
 
-            <p className='p'>Australia — 1.86k (12%)<br />
+            <p className='pp'>Australia — 1.86k (12%)<br />
 Egypt — 2.4k<br />
 UAE — 980<br />
 USA — 720</p>
 
         </div>
 
-            <img src={m} alt='map' />
+        <img src={m} alt='map' />
+        </div>
     </div>
+    {/* </div> */}
 
-    {/* <Card stat={s} t="Project Views" />
+    <div className='row_cards_stat'>
+
+    <Card stat={s} t="Project Views" />
     <Card stat={s2} t="Blogs Views" />
-    <Card stat={s3} t="Total visitors" /> */}
+    <Card stat={s3} t="Total visitors" />
+
+</div>
+
+
+    <Card t="Recent Activity" 
+    desc={[
+        "New message from Sarah M.",
+        
+        "LaLiga Project updated",
+        
+        "New visitor peak today",
+        "Skills updated"
+    ]}
+/>
+
+
+
+    
+
+
 
    </div>
 
    {/* </div> */}
 </div>
 
-   </section>
+   {/* </section> */}
     
-    </div>
+    {/* </div> */}
+
+    <br></br>
+    <br></br>
+    <br></br>
+
     
     </> );
 }

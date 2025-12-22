@@ -13,3 +13,37 @@ font-weight: 400;
 line-height: 1.75rem; /* 140% */
 letter-spacing: 0.02388rem;
 }
+
+.ppp{
+    color: #FFF;
+font-feature-settings: 'liga' off, 'clig' off;
+font-family: Poppins;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.75rem; /* 175% */
+letter-spacing: 0.02388rem;
+}
+
+.card{
+    border-radius: 1.25rem;
+border: 1px solid rgba(132, 132, 132, 0.20);
+background: rgba(39, 39, 39, 0.65);
+
+padding: 20px 20px;
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+gap: 20px;
+}
+
+.card-img{
+  width: 70px;
+}
+
+.col_ca{
+    display: flex;
+    flex-direction: column;
+}

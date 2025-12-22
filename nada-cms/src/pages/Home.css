@@ -42,6 +42,28 @@ font-weight: 500;
 line-height: normal;
 }
 
+.pp{
+      color: #FFF;
+font-feature-settings: 'liga' off, 'clig' off;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.map{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px 20px;
+        border-radius: 1.25rem;
+border: 1px solid rgba(177, 177, 177, 0.16);
+background: rgba(39, 39, 39, 0.65);
+}
+
 .seventy{
   margin-left: 320px;
     width: 75%; 
@@ -74,7 +96,19 @@ line-height: normal;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 20px;
+
 }
+
+.row_cards_stat{
+  margin-top: 20px;
+     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
 
 
 /* ========== MOBILE ========== */
@@ -103,6 +137,13 @@ line-height: normal;
     width: 100%;
   }
 
+   .bigcard2 {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+
+
   .bigcard {
     flex-direction: row;
     align-items: center;
@@ -121,6 +162,12 @@ line-height: normal;
   .bg {
     height: auto;
     padding-bottom: 40px;
+  }
+
+  .bf{
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 300;
   }
 }
 

@@ -54,13 +54,17 @@
 
 // export default Card;
 
+import React, { Component } from 'react';
+import './Card.css';
 
-const Card = ({ item }) => {
+const Card = (props) => {
   return (
     <div className="card">
-      <img src={item.src} alt={item.title} className="card-img" />
-      <h3>{item.title}</h3>
-      <p>{item.desc}</p>
+      <img src={props.stat} alt={props.alt} className="card-img" />
+      <div className='col_ca'>
+      <h3 className='ppp' >{props.t}</h3>
+      <p>{props.desc}</p>
+      </div>
     </div>
   );
 };
