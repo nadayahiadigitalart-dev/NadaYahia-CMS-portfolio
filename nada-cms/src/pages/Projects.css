@@ -148,6 +148,27 @@ height: auto;
   padding: 5px;
 }
 
+.buttonnn{
+  width: 150px;
+  height: 35px;
+  margin: 20px;
+
+  background: #0f837f;
+  
+}
+
+..create-panel {
+  display: none;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.create-panel.show {
+  display: block;
+}
+
 
 
 

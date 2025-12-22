@@ -17,6 +17,7 @@ import uximg6 from "../assets/img5.png";
 import ProjectCards from '../components/ProjectCards';
 
 
+
 const projectData = {
   "UX UI": [
     { title: "SoundFix", des: "Date uploaded: 18/11/2025", img: uximg1 },
@@ -69,8 +70,7 @@ const Projects = () => {
 
 const [activeCat, setActiveCat] = useState(categories[0]);
 
-
-
+const [showCreate, setShowCreate] = useState(false);
 
 
 
@@ -98,6 +98,7 @@ const [activeCat, setActiveCat] = useState(categories[0]);
 
                     </div>
 
+<button onClick={() => setShowCreate(!showCreate)} className='buttonnn'>Create Project</button>
 
   <div className="row_cat">
   {categories.map((cat) => (
@@ -120,6 +121,14 @@ const [activeCat, setActiveCat] = useState(categories[0]);
       par={item.des}
     />
   ))}
+
+   <div className={`create-panel ${showCreate ? "show" : ""}`}>
+    <h3>Create New Project</h3>
+    <input placeholder="Project title" />
+    <textarea placeholder="Project description" />
+    <button>Save</button>
+  </div>
+
 </div>
 
 
