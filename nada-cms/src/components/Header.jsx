@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Contact from '../assets/icon/messg.png';
 import Noti from '../assets/icon/planner.png';
 import p from '../assets/icon/p.png';
+import m from '../assets/menu-3-line.png';
+
 
 import './Header.css';
 
@@ -18,12 +20,12 @@ const Header = () => {
         <img src={p} alt='icons_profil' />
 
          </div>
-                
-           
+        <img className='display' src={m} alt='menu_icon'/>
+
        
          </div>
-    
-    
+
+
     </> );
 }
  

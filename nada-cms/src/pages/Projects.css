@@ -157,23 +157,17 @@ height: auto;
   
 }
 
-..create-panel {
+.create-panel {
   display: none;
   width: 300px;
   padding: 20px;
-  border: 1px solid #ccc;
-  background: #fff;
+  /* border: 1px solid #ccc; */
+  /* background: #fff; */
 }
 
 .create-panel.show {
   display: block;
 }
-
-
-
-
-
-
 
 
 

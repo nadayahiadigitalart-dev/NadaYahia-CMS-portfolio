@@ -11,6 +11,7 @@ import Card from '../components/Card';
 import s from '../assets/Chart 6.png';
 import s2 from '../assets/Chart 7.png';
 import s3 from '../assets/Chart 8.png';
+import k from '../assets/kids most view.png';
 
 const Home = () => {
     return ( <>
@@ -67,7 +68,7 @@ USA — 720</p>
 </div>
 
 
-    <Card t="Recent Activity" 
+    {/* <Card t="Recent Activity" 
     desc={[
         "New message from Sarah M.",
         
@@ -76,7 +77,34 @@ USA — 720</p>
         "New visitor peak today",
         "Skills updated"
     ]}
-/>
+/> */}
+
+<br></br>
+
+<div className='row_third'>
+<div className='card2'>
+    <p className='titlee'>Recent Activity</p>
+    <p className='parag'>
+        -New message from Sarah M. <br></br>
+        -“LaLiga Project” updated<br></br>
+        -New visitor peak today<br></br>
+        -Skills updated
+    </p>
+</div>
+
+<div className='most_views'>
+    <div className='col_most'>
+    <p className='titlee'>Most Viewed Project</p>
+    <p className='parag'>Kids app <br></br>
+    24% of total traffic </p>
+    </div>
+
+    <img src={k} alt='project'/>
+    
+</div>
+
+
+</div>
 
 
 

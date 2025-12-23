@@ -5,7 +5,7 @@
     align-items: center;
     /* gap: %; */
     width: 100%;
-    gap: 400px;
+    gap: 15rem;
 }
 
 .p{
@@ -25,4 +25,24 @@ line-height: normal;
     justify-content: center;
     align-items: center;
     gap: 10px;
+}
+
+.display{
+    display: none;
+}
+
+
+
+
+@media (max-width: 768px) {
+
+    .display{
+        display: block;
+        margin-right: 20px;
+    }
+
+    .roww{
+        display: none;
+    }
+
 }

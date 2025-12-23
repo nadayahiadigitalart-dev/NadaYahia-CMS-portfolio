@@ -100,6 +100,7 @@ background: rgba(39, 39, 39, 0.65);
 
 }
 
+
 .row_cards_stat{
   margin-top: 20px;
      display: flex;
@@ -109,10 +110,78 @@ background: rgba(39, 39, 39, 0.65);
     gap: 20px;
 }
 
+.card2{
+  border-radius: 1.25rem;
+border: 1px solid rgba(177, 177, 177, 0.16);
+background: rgba(39, 39, 39, 0.65);
+
+width: 17.8125rem;
+height: 11.125rem;
+
+padding: 20px;
+}
+
+.titlee{
+  color: #0E8C88;
+font-feature-settings: 'liga' off, 'clig' off;
+font-family: Poppins;
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.75rem; /* 140% */
+letter-spacing: 0.02388rem;
+}
+
+.parag{
+  color: #FFF;
+font-feature-settings: 'liga' off, 'clig' off;
+font-family: Poppins;
+font-size: 0.75rem;
+font-style: normal;
+font-weight: 300;
+line-height: 1.5rem; /* 200% */
+letter-spacing: 0.02388rem;
+}
+
+.most_views{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  width: 25.125rem;
+height: 11.125rem;
+
+border-radius: 1.25rem;
+border: 1px solid rgba(177, 177, 177, 0.16);
+background: #1C3231;
+  padding: 20px;
+
+}
+
+.col_most{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+.row_third{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  margin-bottom: 300px;
+}
+
 
 
 /* ========== MOBILE ========== */
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
 
   .row {
     flex-direction: column;
@@ -169,13 +238,13 @@ background: rgba(39, 39, 39, 0.65);
     font-family: Poppins;
     font-weight: 300;
   }
-}
+} */
 
 
 
 
 /* ========== TABLET ========== */
-@media (min-width: 768px) and (max-width: 1024px) {
+/* @media (min-width: 768px) and (max-width: 1024px) {
 
   .fixed {
     width: 30%;
@@ -197,7 +266,81 @@ background: rgba(39, 39, 39, 0.65);
   .bigcard img {
     width: 70%;
   }
+} */
+
+@media (max-width: 768px) {
+
+  /* Background */
+  .bg {
+    height: auto; /* avoid 100vh issues on mobile */
+    min-height: 100vh;
+    padding: 20px 10px;
+  }
+
+  /* Main row */
+  .bigrow {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Center content instead of margin-left */
+  .seventy {
+    margin-left: 0;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  /* Rows → columns */
+  .row_cards,
+  .row_cards_stat,
+  .row_third {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Cards full width */
+  .card2 {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Most views card */
+  .most_views {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  /* Map container */
+  .map {
+    width: 100%;
+    padding: 15px;
+  }
+
+  /* Typography scaling */
+  .titlee {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+  }
+
+  .parag {
+    font-size: 0.8rem;
+    line-height: 1.3rem;
+  }
+
+  .pp,
+  .date {
+    font-size: 14px;
+  }
+
+  /* Remove huge bottom spacing */
+  .row_third {
+    margin-bottom: 60px;
+  }
 }
+
 
 
 
