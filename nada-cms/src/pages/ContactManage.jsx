@@ -1,5 +1,8 @@
-import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+
+
 
 
 import "./ContactManage.css";
@@ -9,33 +12,101 @@ import ContactCard from "../components/ContactCard";
 import contImg from "../assets/Img.png";
 import { Supabase } from "../Supabase";
 
+import i3 from '../assets/delete-bin-line.png';
 
 
 const ContactManage = () => {
-const {id} = useParams()
-const [data, setData] = useState("");
 
-useEffect(()=>{
-  async function CallRow() {
-    const res = await Supabase.from("Contact Messages").select("*").eq("id",id);
-    setData(res.data[0]);
-    
-  //  if (error) {
-  //     console.error("Supabase error:", error);
-  //   } else {
-  //     console.log("Supabase data:", data);
-  //     setData(data);
-  //   }
-  }
-
-  if (id) CallRow();
-
-},[id])
-
-
-  const [filter, setFilter] = useState("All");
+  // const {id} = useParams()
+  
+   const [filter, setFilter] = useState("All");
   const [open, setOpen] = useState(false);
 
+  // const navigate = useNavigate();
+
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+  async function fetchMessages() {
+    setLoading(true);
+    try {
+      const { data: messages, error } = await Supabase
+        .from("Contact Messages")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error("Supabase error:", error);
+      }
+
+      console.log("Fetched messages:", messages); // <-- important
+      setData(Array.isArray(messages) ? messages : []);
+    } catch (err) {
+      console.error("Fetch failed:", err);
+    }
+    setLoading(false);
+  }
+
+  fetchMessages();
+
+
+ 
+
+
+  //   async function deleteRow(id) {
+  //   const { data: deletedData, error } = await Supabase
+  //     .from('"Contact Messages"')
+  //     .delete()
+  //     .eq("id", id);
+
+  //   if (error) {
+  //     console.error("Delete failed:", error);
+  //   } else {
+  //     console.log("Deleted:", deletedData);
+  //     // Update state to remove deleted message
+  //     setData(prev => prev.filter(item => item.id !== id));
+  //   }
+  // }
+
+
+
+
+
+}, []);
+
+
+
+async function deleteRow(id) {
+  try {
+    const { data: deletedData, error } = await Supabase
+      .from("Contact Messages") // table name exactly as in Supabase
+      .delete()
+      .eq('id', id);
+
+    if (error) {
+      console.error("Delete failed:", error);
+    } else {
+      console.log("Deleted:", deletedData);
+      setData(prev => prev.filter(item => item.id !== id)); // remove from state
+    }
+  } catch (err) {
+    console.error("Delete error:", err);
+  }
+}
+
+//  async function deleteRow(id) {
+
+//     const res = await Supabase.from("Contact Messages").delete.eq("id",id);
+    
+//   }
+
+
+
+
+    
+if (loading) return <p>Loading...</p>
+ 
   return (
     <>
       <div className="bg">
@@ -83,19 +154,32 @@ useEffect(()=>{
 
             </div>
 
-            {/* later: messages list goes here */}
+       
 
-            <div className="gap_col">
 
-            <ContactCard 
-            img={contImg}
-    alt={data.sender_email}
-    name={data.sender_name}
-    email={data.sender_email}
-    date={data.created_at}
-    status={data.status || "Unread"}
-    sub={data.subject}
-            />
+   <div className="messages_list">
+            {data.map((item) => (
+              <div className="gap_col" key={item.id}>
+                {/* Clickable card - navigates to detail page */}
+                {/* <Link to={`/contact-details/${item.id}`} style={{ textDecoration: "none" }}> */}
+                  <ContactCard
+                    img={contImg}
+                    alt={item.sender_email}
+                    name={item.sender_name}
+                    email={item.sender_email}
+                    date={item.created_at}
+                    status={item.status || "Unread"}
+                    sub={item.subject}
+                    onDelete={() => deleteRow(item.id)} 
+                    
+                  />
+                {/* </Link> */}
+              </div>
+            ))}
+
+            {data.length === 0 && <p>No messages found.</p>}
+          </div>
+        
             
 
           {/* <ContactCard 
@@ -110,7 +194,7 @@ useEffect(()=>{
 
            
 
-</div>
+
           </div>
         </section>
             <br></br>

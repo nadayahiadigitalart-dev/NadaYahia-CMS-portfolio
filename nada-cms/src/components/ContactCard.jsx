@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './ContactCard.css';
 // import ContactCard from './ContactCard';
-import i2 from '../assets/eye-line.png';
+// import i2 from '../assets/eye-line.png';
 import i3 from '../assets/delete-bin-line.png';
 
 const ContactCard = (props) => {
@@ -23,8 +23,11 @@ const ContactCard = (props) => {
     </div>
      <div className='row_icons'>
 
-                <img src={i2} />
-                <img src={i3} />
+                {/* <img src={i2} /> */}
+               <button className='buttonn' onClick={props.onDelete}>
+    <img src={i3} alt="Delete" />
+</button>
+
     
             </div>
 

@@ -178,6 +178,25 @@ background: #1C3231;
   margin-bottom: 300px;
 }
 
+@media (max-width: 780px) {
+.map{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  width: 1.125rem;
+
+    padding: 10px 20px;
+        border-radius: 1.25rem;
+border: 1px solid rgba(177, 177, 177, 0.16);
+background: rgba(39, 39, 39, 0.65);
+}
+
+.map_photo{
+  width: 300px;
+}
+}
+
 
 
 /* ========== MOBILE ========== */

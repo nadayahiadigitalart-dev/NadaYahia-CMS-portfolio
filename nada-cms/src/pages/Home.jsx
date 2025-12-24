@@ -54,7 +54,7 @@ USA — 720</p>
 
         </div>
 
-        <img src={m} alt='map' />
+        <img className='map_photo' src={m} alt='map' />
         </div>
     </div>
     {/* </div> */}
