@@ -63,9 +63,28 @@ const Project_details = ({ projects }) => {
               />
             </div>
 
+             <div className="text_input">
+              <p className="title">Meta Description</p>
+              <input
+                className="t_input"
+                value={meta}
+                onChange={(e) => setMeta(e.target.value)}
+              />
+            </div>
+
+
+             <div className="text_input">
+              <p className="title">title1</p>
+              <input
+                className="t_input"
+                value={meta}
+                onChange={(e) => setMeta(e.target.value)}
+              />
+            </div>
+
          
             <div className="text_input">
-              <p className="title">Slug</p>
+              <p className="title">title2</p>
               <input
                 className="t_input"
                 value={slug}
@@ -83,6 +102,11 @@ const Project_details = ({ projects }) => {
            
             <TextEditorInput
               paragraph_title="Paragraph 1 EN"
+              par={paragraph}
+            />
+
+             <TextEditorInput
+              paragraph_title="Paragraph 2 EN"
               par={paragraph}
             />
 
