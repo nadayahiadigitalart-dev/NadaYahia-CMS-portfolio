@@ -40,7 +40,7 @@ import "./Nav.css";
 
 const Nav = ({ img, title, to }) => {
   return (
-    <Link to={to} className="icon_row">
+    <Link to={to} style={{ textDecoration: "none", color: "inherit" }} className="icon_row">
       <img src={img} alt={title} />
       <p className="title">{title}</p>
     </Link>

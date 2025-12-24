@@ -6,7 +6,7 @@
 
 .cont_card{
     display: flex;
-padding: 0.04rem 1.25rem;
+padding: 0.54rem 1.04rem;
 flex-direction: row;
 justify-content: center;
 align-items: center;
@@ -14,6 +14,8 @@ gap: 3.25rem;
 border-radius: 1.25rem;
 border: 1px solid rgba(177, 177, 177, 0.16);
 background: rgba(39, 39, 39, 0.65);
+width: 47rem;
+
 
 }
 
@@ -24,6 +26,7 @@ flex-direction: row;
 align-items: center;
 justify-content: center;
 gap: 1rem;
+
 
 }
 
@@ -47,8 +50,8 @@ line-height: 1.3125rem;
 
 .buttonn{
     border-radius: 1.25rem;
-border: 1px solid #0E8C88;
-background: rgba(9, 114, 110, 0.64);
+/* border: 1px solid #0E8C88; */
+/* background: rgba(9, 114, 110, 0.64); */
 
 display: flex;
 width: 5.0625rem;

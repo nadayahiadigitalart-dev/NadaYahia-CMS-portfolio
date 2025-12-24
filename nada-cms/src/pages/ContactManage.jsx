@@ -160,8 +160,11 @@ if (loading) return <p>Loading...</p>
    <div className="messages_list">
             {data.map((item) => (
               <div className="gap_col" key={item.id}>
-                {/* Clickable card - navigates to detail page */}
-                {/* <Link to={`/contact-details/${item.id}`} style={{ textDecoration: "none" }}> */}
+                {/* <Link to={path} >{item.id}</Link> */}
+              <Link
+        to={`/ContactMessages/${item.id}`}
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
                   <ContactCard
                     img={contImg}
                     alt={item.sender_email}
@@ -173,7 +176,7 @@ if (loading) return <p>Loading...</p>
                     onDelete={() => deleteRow(item.id)} 
                     
                   />
-                {/* </Link> */}
+                </Link>
               </div>
             ))}
 

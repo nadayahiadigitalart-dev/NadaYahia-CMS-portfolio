@@ -1,8 +1,10 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
 import { Supabase } from '../Supabase';
 
 import "./MessageDetail.css";
+import Menu from '../components/Menu';
+import Header from '../components/Header';
 
 const MessageDetail = () => {
 
@@ -22,12 +24,22 @@ useEffect(()=>{
   //   }
   }
 
-  if (id) CallRow();
+//   if (id) 
+    CallRow();
 
 },[id])
 
 
     return ( <>
+
+     <div className="bg">
+        <section className="row_bigg">
+          <div className="leftt">
+            <Menu />
+          </div>
+
+          <div className="rightt">
+            <Header />
 
     <div className='mesg'>
         {/* <div className='col_info'> */}
@@ -43,13 +55,26 @@ useEffect(()=>{
 
          <div className='row_info'>
             <h1 className='tit'>Date</h1>
-            <p className='text'>{data.date}</p>
+            <p className='text'>{data.created_at}</p>
+        </div>
+
+        <div className='mesg'>
+            <p className='tit'>Message</p>
+            <p className='text2'>{data.message}</p>
         </div>
         {/* </div> */}
 
-        <link to="/ContactMessage">
+        <Link to="/ContactMessages" style={{ textDecoration: "none", color: "inherit" } }>
         <button className='but'>Back</button>
-        </link>
+        </Link>
+
+        <div className='margin'></div>
+    </div>
+
+
+
+    </div>
+    </section>
     </div>
     
     

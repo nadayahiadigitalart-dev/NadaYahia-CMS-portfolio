@@ -24,9 +24,10 @@ const ContactCard = (props) => {
      <div className='row_icons'>
 
                 {/* <img src={i2} /> */}
-               <button className='buttonn' onClick={props.onDelete}>
+            
+               <div className='buttonn' onClick={props.onDelete}>
     <img src={i3} alt="Delete" />
-</button>
+</div>
 
     
             </div>

@@ -22,6 +22,9 @@ const Routing = () => {
            <Route path='/projectdetails' element={<Project_details />} />
            <Route path='/ContactMessages' element={<ContactManage />} />
            <Route path='/Message' element={<MessageDetail />} />
+           {/* <Route path="/contact-manage" element={<ContactManage />} /> */}
+<Route path="/ContactMessages/:id" element={<MessageDetail />} />
+
 
 
 

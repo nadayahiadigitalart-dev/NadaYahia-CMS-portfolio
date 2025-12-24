@@ -26,12 +26,12 @@ const Menu = () => {
         <img src={Logo} alt='nada logo'/>
 
         <div className='nav'>
-             <Nav img={home}  title="Dashboard" to="/home" />
+             <Nav img={home}  title="Dashboard" to="/home" style={{ textDecoration: "none", color: "inherit" }}/>
     <Nav img={proj_manage}  title="Project management" to="/projects" />
     <Nav img={pages}  title="Pages management" to="/" />
     <Nav img={categories}  title="Categories" to="/" />
     <Nav img={Blog}  title="Blog management" to="/" />
-    <Nav img={Contact}  title="Contact messages" to="/ContactMessages" />
+    <Nav img={Contact}  title="Contact messages" to="/ContactMessages" style={{ textDecoration: "none", color: "inherit" }}/>
     <br />
     <br />
     <br />

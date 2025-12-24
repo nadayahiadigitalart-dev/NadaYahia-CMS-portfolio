@@ -8,6 +8,11 @@ font-weight: 400;
 line-height: normal;
 }
 
+.title:hover{
+    color: #0E8C88;
+
+}
+
 .icon_row{
     display: flex;
     flex-direction: row;
