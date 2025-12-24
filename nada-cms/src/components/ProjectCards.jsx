@@ -17,9 +17,9 @@ const ProjectCards = (props) => {
         <p className='t'>{props.t}</p>
         <p className='pr'>{props.par}</p>
         <div className='row_icons'>
-           <Link to="/projectdetails" >
+           {/* <Link to={`/projects/${p.id}`} > */}
            <img src={i1} />
-           </Link>
+           {/* </Link> */}
             {/* <img src={i2} /> */}
             <div className='buttonn_n' onClick={props.onDelete}>
                <img src={i3} alt="Delete" />

@@ -1,30 +1,10 @@
-// import React, { useState } from 'react';
-// import { RichTextEditor } from '@mantine/rte';
-// // import '@mantine/rte/dist/mantine-rte.css'; 
-// // optional, if needed
-// // import './TextEditorInput.css'; 
-// // optional, for your custom styling
-
-// const TextEditorInput = (props) => {
-//   const [value, setValue] = useState('');
-
-//   return (
-//     <div className="text-editor-container">
-//       <p className="title">{props.paragraph_title}</p>
-//       <RichTextEditor value={value} onChange={setValue} />
-//     </div>
-//   );
-// };
-
-// export default TextEditorInput;
-
 
 import React, { useRef } from "react";
 import './TextEditorInput.css';
 // import TextEditorInput from './ReactQuill';
 
 
-const TextEditorInput = ({ paragraph_title }) => {
+const TextEditorInput = ({ paragraph_title, par }) => {
   const editorRef = useRef(null);
 
   const format = (cmd, value = null) => {
@@ -104,8 +84,10 @@ const TextEditorInput = ({ paragraph_title }) => {
         ref={editorRef}
         contentEditable
         className="editor-area"
-        placeholder="Write your content here..."
+        placeholder={par}
       />
+      
+
     </div>
   );
 };

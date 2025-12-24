@@ -1,140 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import Menu from "../components/Menu";
-// import Header from "../components/Header";
-// import ProjectCards from "../components/ProjectCards";
-// import "./Projects.css";
-// import { Supabase } from "../Supabase";
-
-// const Projects = () => {
-//   const [categories, setCategories] = useState([]);
-//   const [projects, setProjects] = useState([]);
-//   const [activeCategory, setActiveCategory] = useState("");
-
-//   // Fetch categories
-//   useEffect(() => {
-//     async function fetchCategories() {
-//       const { data, error } = await Supabase
-//         .from("Categories")
-//         .select("title")
-//         .order("id");
-
-//       if (!error && data.length > 0) {
-//         setCategories(data);
-//         setActiveCategory(data[0].title); // default selected
-//       }
-//     }
-//     fetchCategories();
-//   }, []);
-
-//     async function projectCategories() {
-//       const { data, error } = await Supabase
-//         .from("Projects")
-//         .select("category", { count: "exact" })
-//         // .neq("category", null); // exclude null categories
-
-//       if (!error && data) {
-//         // Extract unique categories
-//         const uniqueCategories = [...new Set(data.map(item => item.category))];
-//         setCategories(uniqueCategories);
-//         setActiveCategory(uniqueCategories[0] || ""); // default selected
-//       } else {
-//         console.error("Error fetching categories:", error);
-//       }
-//     }
-
-//     projectCategories();
-
-
-// useEffect(() => {
-//   if (!activeCategory) return;
-
-//   async function fetchProjects() {
-
-
-//     const { data, error } = await Supabase
-//       .from("Projects")
-//       .select("*")
-//       // .eq("category", activeCategory);
-
-//     if (!error) {
-//       console.log("Projects fetched:", data); // check in console
-//       setProjects(data || []); // ensure it's an array
-//     } else {
-//       console.log("Supabase error:", error);
-//     }
-//   }
-
-//   fetchProjects();
-// }, [activeCategory]);
-
-
-
-//   return (
-//     <div className="bg">
-//       <section className="row_big">
-//         <div className="left">
-//           <Menu />
-//         </div>
-
-//         <div className="right">
-//           <Header />
-
-//           {/* CATEGORY BUTTONS */}
-//           <div className="row_cat">
-//             {categories.map((cat) => (
-//               <button
-//                 key={cat.title}
-//                 className={`category-btn ${
-//                   activeCategory === cat.title ? "selected" : ""
-//                 }`}
-//                 onClick={() => setActiveCategory(cat.title)  }
-//               >
-//                 {cat.title}
-//               </button>
-//             ))}
-//           </div>
-
-//           {/* PROJECT CARDS */}
-//           <div className="cards_p">
-//             {projects.length === 0 ? (
-//               <p>No projects found for this category.</p>
-//             ) : (
-//               projects.map((p) => (
-//                 <ProjectCards
-//                   key={p.id}
-//                   img={p.cover_img}
-//                   t={p.title}
-//                   par={p.des}
-//                 />
-//               ))
-//             )}
-//           </div>
-//         </div>
-//       </section>
-//     </div>
-//   );
-// };
-
-// export default Projects;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 import React, { useEffect, useState } from "react";
 import Menu from "../components/Menu";
@@ -142,6 +5,7 @@ import Header from "../components/Header";
 import ProjectCards from "../components/ProjectCards";
 import "./Projects.css";
 import { Supabase } from "../Supabase";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
   const [newTitle, setNewTitle] = useState("");
@@ -352,6 +216,12 @@ async function deleteRow(id) {
               <p>No projects found for this category.</p>
             ) : (
               projects.map((p) => (
+
+                 <Link
+        to={`/ContactMessages/${p.id}`}
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        <Link to={`/projects/${p.id}`} >
                 <ProjectCards
                   // key={p.id}
                   img={p.cover_img}
@@ -359,6 +229,10 @@ async function deleteRow(id) {
                   par={p.created_at}
                   onDelete={() => deleteRow(p.id)} 
                 />
+
+                </Link>
+
+                </Link>
               ))
             )}
 

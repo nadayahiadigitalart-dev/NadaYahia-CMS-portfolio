@@ -8,6 +8,7 @@ import Project_details from "./components/Proj_details";
 import ContactManage from "./pages/ContactManage";
 import MessageDetail from "./pages/MessageDetail";
 import Category from "./pages/Category";
+import Projectdetails from "./pages/Projectdetails";
 
 // import { Link } from "react-router";
 
@@ -20,11 +21,12 @@ const Routing = () => {
             <Route path='/' element={<Login />} />
            <Route path='/home' element={<Home />} />
            <Route path='/projects' element={<Projects />} />
+           <Route path="/projects/:id" element={<Projectdetails />} />
            <Route path='/projectdetails' element={<Project_details />} />
            <Route path='/ContactMessages' element={<ContactManage />} />
-           <Route path='/Message' element={<MessageDetail />} />
-           {/* <Route path="/contact-manage" element={<ContactManage />} /> */}
            <Route path="/ContactMessages/:id" element={<MessageDetail />} />
+           {/* <Route path='/Message' element={<MessageDetail />} /> */}
+           {/* <Route path="/contact-manage" element={<ContactManage />} /> */}
            <Route path="/category" element={<Category />} />
 
            
