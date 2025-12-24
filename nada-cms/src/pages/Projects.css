@@ -157,7 +157,7 @@ height: auto;
   
 }
 
-.create-panel {
+.create_panel {
   display: none;
   width: 300px;
   padding: 20px;
@@ -165,7 +165,7 @@ height: auto;
   /* background: #fff; */
 }
 
-.create-panel.show {
+.create_panel.show {
   display: block;
 }
 

@@ -20,8 +20,10 @@ const ProjectCards = (props) => {
            <Link to="/projectdetails" >
            <img src={i1} />
            </Link>
-            <img src={i2} />
-            <img src={i3} />
+            {/* <img src={i2} /> */}
+            <div className='buttonn_n' onClick={props.onDelete}>
+               <img src={i3} alt="Delete" />
+           </div>
 
         </div>
     </div>

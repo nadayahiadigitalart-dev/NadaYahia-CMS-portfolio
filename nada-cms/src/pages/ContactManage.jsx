@@ -95,6 +95,8 @@ async function deleteRow(id) {
   }
 }
 
+if (loading) return <p>Loading...</p>
+
 //  async function deleteRow(id) {
 
 //     const res = await Supabase.from("Contact Messages").delete.eq("id",id);
@@ -105,7 +107,6 @@ async function deleteRow(id) {
 
 
     
-if (loading) return <p>Loading...</p>
  
   return (
     <>
