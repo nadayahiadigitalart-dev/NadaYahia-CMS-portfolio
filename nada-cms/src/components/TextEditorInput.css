@@ -19,6 +19,9 @@ font-family: poppins;
 }
 
 .editor-area {
+  direction: ltr;
+  unicode-bidi: plaintext;
+   text-align: left;
   min-height: 140px;
   width: 43.5625rem;
 

@@ -1,3 +1,6 @@
+import React, { Component } from 'react';
+
+
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Supabase } from "../Supabase";
@@ -8,80 +11,33 @@ import "../components/Proj_details.css";
 import Menu from "../components/Menu";
 import Header from "../components/Header";
 import TextEditorInput from "../components/TextEditorInput";
+const CreateItem = () => {
 
-const Projectdetails = () => {
-  const { id } = useParams();
+    
+    const { id } = useParams();
   const [project, setProject] = useState(null);
 
     const [title, setTitle] = useState("");
+    const [title1, setTitle1] = useState("");
+    const [title2, setTitle2] = useState("");
+
     const [meta, setMeta] = useState("");
     const [slug, setSlug] = useState("");
     const [desc1, setDesc1] = useState("");
   const [desc2,setDesc2] = useState("");
     const [image, setImage] = useState("");
   
-    const handleImageChange = (e) => {
-      const file = e.target.files[0];
-      if (file) setImage(URL.createObjectURL(file));
-    };
-  
-    const handleSave = async () => {
-  const { error } = await Supabase
-    .from("projects")
-    .update({
-      title,
-      meta_desc: meta,
-      slug,
-      desc1,
-      desc2,
-      cover_img: image,
-      images: image
-    })
-    .eq("id", id);
-
-  if (error) {
-    console.error(error);
-    alert("Error saving project");
-  } else {
-    alert("Project updated successfully");
-  }
-};
 
 
- useEffect(() => {
-  async function fetchProject() {
-    const { data, error } = await Supabase
-      .from("projects")
-      .select("*")
-      .eq("id", id)
-      .single();
+    async function addItem() {
+        // console.log()
 
-    if (error) {
-      console.error(error);
-    } else {
-      setProject(data);
+        const res = await Supabase.from("items").insert({"title": title})
     }
-  }
-
-  fetchProject();
-}, [id]);
-
-useEffect(() => {
-  if (project) {
-    setTitle(project.title || "");
-    setMeta(project.meta_desc || "");
-    setSlug(project.slug || "");
-    setDesc1(project.desc1 || "");
-    setDesc2(project.desc2 || "");
-
-    setImage(project.cover_img || "");
-  }
-}, [project]);
 
 
-  if (!project) return <p>Loading...</p>;
+    return (<>
 
-  return (
     <div className="bg">
       <section className="row_big">
         <div className="left">
@@ -90,6 +46,8 @@ useEffect(() => {
 
         <div className="right">
           <Header />
+
+          {/* <form onSubmit={addItem} > */}
 
           <section className="inputs">
            
@@ -126,8 +84,8 @@ useEffect(() => {
               <p className="title">title1</p>
               <input
                 className="t_input"
-                value={desc1}
-                onChange={(e) => setTitle(e.target.value)}
+                value={title1}
+                onChange={(e) => setTitle1(e.target.value)}
               />
             </div>
 
@@ -136,8 +94,8 @@ useEffect(() => {
               <p className="title">title2</p>
               <input
                 className="t_input"
-                value={desc2}
-                onChange={(e) => setTitle(e.target.value)}
+                value={title2}
+                onChange={(e) => setTitle2(e.target.value)}
               />
             </div>
 
@@ -145,14 +103,18 @@ useEffect(() => {
             <div className="image_input">
               <p className="title">Thumbnail Image</p>
               {image ? <img src={image} className="thumb-preview" /> : <p>No image</p>}
-              <input type="file" onChange={handleImageChange} />
+              <input type="file"
+            //    onChange={handleImageChange}
+               />
             </div>
 
              <div className="image_input">
               <p className="title"> Images</p>
               <p className="t_input"></p>
               {image ? <img src={image} className="thumb-preview" /> : <p>No image</p>}
-              <input type="file" onChange={handleImageChange} />
+              <input type="file" 
+            //   onChange={handleImageChange} 
+              />
             </div>
 
            
@@ -170,13 +132,20 @@ useEffect(() => {
 
 
             <br />
-            <button className="save_btn" onClick={handleSave}>Save Changes</button>
+            <button className="save_btn" 
+            // onClick={handleSave}
+            onClick={addItem}
+            >Save Changes</button>
 
           </section>
+    {/* </form> */}
         </div>
       </section>
     </div>
-  );
-}
 
-export default Projectdetails;
+
+    
+    </>  );
+ }
+  
+ export default CreateItem;

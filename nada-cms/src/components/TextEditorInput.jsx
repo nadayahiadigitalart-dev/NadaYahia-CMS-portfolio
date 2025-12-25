@@ -1,11 +1,19 @@
 
-import React, { useRef } from "react";
-import './TextEditorInput.css';
+import React, { useEffect, useRef } from "react";
+import '../components/TextEditorInput.css';
 // import TextEditorInput from './ReactQuill';
 
 
-const TextEditorInput = ({ paragraph_title, par }) => {
+const TextEditorInput = ({ paragraph_title, value, onChange }) => {
+
+  
   const editorRef = useRef(null);
+
+   useEffect(() => {
+    if (editorRef.current && value !== undefined) {
+      editorRef.current.innerHTML = value;
+    }
+  }, [value]);
 
   const format = (cmd, value = null) => {
     editorRef.current.focus();
@@ -80,12 +88,13 @@ const TextEditorInput = ({ paragraph_title, par }) => {
             </button>
       </div>
 
-      <div
+    <div
         ref={editorRef}
         contentEditable
         className="editor-area"
-        placeholder={par}
-      />
+        onInput={(e) => onChange(e.currentTarget.innerHTML)}
+      >
+    </div>
       
 
     </div>

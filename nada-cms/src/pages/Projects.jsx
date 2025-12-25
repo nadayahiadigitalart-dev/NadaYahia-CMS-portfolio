@@ -38,7 +38,7 @@ const [showNewCard, setShowNewCard] = useState(false);
 }]);
   const [activeCategory, setActiveCategory] = useState("");
 
-  // 1️⃣ Fetch categories ONCE
+
   useEffect(() => {
     async function fetchCategories() {
       const { data, error } = await Supabase
@@ -56,23 +56,25 @@ const [showNewCard, setShowNewCard] = useState(false);
   }, []);
 
 
-  // 1️⃣ Fetch categories once
+
 useEffect(() => {
   async function fetchCategories() {
     const { data, error } = await Supabase
       .from("Categories")
       .select("title")
       .order("id");
+      // .order("created_at", { ascending: false });
+
 
     if (!error && data.length > 0) {
       setCategories(data);
-      setActiveCategory(data[0].title); // ✅ initialize activeCategory
+      setActiveCategory(data[0].title); 
     }
   }
   fetchCategories();
 }, []);
 
-// 2️⃣ Fetch projects whenever activeCategory changes
+
 useEffect(() => {
   if (!activeCategory) return; // skip if not set yet
 
@@ -98,6 +100,7 @@ async function deleteRow(id) {
       .from("projects") 
       .delete()
       .eq('id', id);
+      // .order("created_at", created_at)
 
     if (error) {
       console.error("Delete failed:", error);
@@ -141,20 +144,28 @@ async function deleteRow(id) {
 
         <div className="right">
           <Header />
-
-           <button onClick={() => setShowCreate(!showCreate)} className='buttonnn'>
+<Link to='/CreateItem'>
+           <button 
+          //  onClick={() => setShowCreate(!showCreate)}
+            className='buttonnn'>
   Create Project
 </button>
+</Link>
 
-<div className={`create_panel ${showCreate ? "show" : ""}`}>
-  <h3 className='date'>Create New Project</h3>
+{/* <div 
+className={`create_panel ${
+showCreate ? "show" : ""}`}>
+
+  // <h3 className='date'>Create New Project</h3> */}
+
   
-  <input
+  {/* <input
     placeholder="Project title"
     value={newTitle}
     onChange={(e) => setNewTitle(e.target.value)}
   />
   <br />
+  <p className="date2">image size should be 342*246 px</p>
   
   <input
     type="file"
@@ -185,7 +196,7 @@ async function deleteRow(id) {
         setProjects((prev) => [...prev, tempProject]);
 
         // Hide create panel and reset inputs
-        setShowCreate(false);
+        setShowCreate(true);
         setNewTitle("");
         setNewImg("");
       }
@@ -193,9 +204,9 @@ async function deleteRow(id) {
   >
     Save
   </button>
-</div>
+</div> */}
 
-          {/* CATEGORY BUTTONS */}
+          
           <div className="row_cat">
             {categories.map((cat) => (
               <button
@@ -210,29 +221,30 @@ async function deleteRow(id) {
             ))}
           </div>
 
-          {/* PROJECT CARDS */}
+         
           <div className="cards_p">
             {projects.length === 0 ? (
               <p>No projects found for this category.</p>
             ) : (
               projects.map((p) => (
 
-                 <Link
-        to={`/ContactMessages/${p.id}`}
-        style={{ textDecoration: "none", color: "inherit" }}
-      >
-        <Link to={`/projects/${p.id}`} >
+      //            <Link
+      //   to={`/ContactMessages/${p.id}`}
+      //   style={{ textDecoration: "none", color: "inherit" }}
+      // >
+       
                 <ProjectCards
                   // key={p.id}
                   img={p.cover_img}
                   t={p.title}
                   par={p.created_at}
-                  onDelete={() => deleteRow(p.id)} 
+                  onDelete={() => deleteRow(p.id)}
+                  id={`/projects/${p.id}`} 
                 />
 
-                </Link>
+                // </Link>
 
-                </Link>
+                // </Link>
               ))
             )}
 

@@ -9,6 +9,7 @@ import ContactManage from "./pages/ContactManage";
 import MessageDetail from "./pages/MessageDetail";
 import Category from "./pages/Category";
 import Projectdetails from "./pages/Projectdetails";
+import CreateItem from "./pages/CreateItem";
 
 // import { Link } from "react-router";
 
@@ -23,10 +24,9 @@ const Routing = () => {
            <Route path='/projects' element={<Projects />} />
            <Route path="/projects/:id" element={<Projectdetails />} />
            <Route path='/projectdetails' element={<Project_details />} />
+           <Route path='/CreateItem' element={<CreateItem />} />
            <Route path='/ContactMessages' element={<ContactManage />} />
            <Route path="/ContactMessages/:id" element={<MessageDetail />} />
-           {/* <Route path='/Message' element={<MessageDetail />} /> */}
-           {/* <Route path="/contact-manage" element={<ContactManage />} /> */}
            <Route path="/category" element={<Category />} />
 
            

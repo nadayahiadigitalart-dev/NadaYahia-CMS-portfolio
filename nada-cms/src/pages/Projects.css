@@ -38,6 +38,16 @@ font-weight: 500;
 line-height: normal;
 }
 
+.date2{
+    color: #FFF;
+font-feature-settings: 'liga' off, 'clig' off;
+font-family: Poppins;
+font-size: 13px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
 .seventy5{
     width: 75%; 
 
