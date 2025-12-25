@@ -62,7 +62,7 @@ useEffect(() => {
     const { data, error } = await Supabase
       .from("Categories")
       .select("title")
-      .order("id");
+      .order("id" ,{ ascending: false } );
       // .order("created_at", { ascending: false });
 
 
@@ -82,6 +82,7 @@ useEffect(() => {
     const { data, error } = await Supabase
       .from("projects")
       .select("*")
+      .order("id" ,{ ascending: true } )
       .eq("category", activeCategory); // ✅ filter by selected category
 
     if (!error) {
@@ -144,7 +145,9 @@ async function deleteRow(id) {
 
         <div className="right">
           <Header />
-<Link to='/CreateItem'>
+<Link to='/CreateItem' 
+
+   >
            <button 
           //  onClick={() => setShowCreate(!showCreate)}
             className='buttonnn'>

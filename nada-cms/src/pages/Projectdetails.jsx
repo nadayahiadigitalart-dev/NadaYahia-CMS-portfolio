@@ -12,7 +12,8 @@ import TextEditorInput from "../components/TextEditorInput";
 const Projectdetails = () => {
   const { id } = useParams();
   const [project, setProject] = useState(null);
-
+    const [title1, setTitle1] = useState("");
+    const [title2, setTitle2] = useState("");
     const [title, setTitle] = useState("");
     const [meta, setMeta] = useState("");
     const [slug, setSlug] = useState("");
@@ -66,10 +67,19 @@ const Projectdetails = () => {
   fetchProject();
 }, [id]);
 
+  async function save() {
+        const res = await Supabase.from("items").update({
+            "title": title, "title1":title1, "title2":title2, "desc1":desc1,
+"desc2":desc2, "images": image, "slug": slug, "meta": meta 
+        }).eq("id", id);
+    }
+
 useEffect(() => {
   if (project) {
     setTitle(project.title || "");
     setMeta(project.meta_desc || "");
+    setDesc1(project.title1 || "");
+    setDesc1(project.title2 || "");
     setSlug(project.slug || "");
     setDesc1(project.desc1 || "");
     setDesc2(project.desc2 || "");
@@ -126,8 +136,8 @@ useEffect(() => {
               <p className="title">title1</p>
               <input
                 className="t_input"
-                value={desc1}
-                onChange={(e) => setTitle(e.target.value)}
+                value={title1}
+                onChange={(e) => setTitle1(e.target.value)}
               />
             </div>
 
@@ -136,8 +146,8 @@ useEffect(() => {
               <p className="title">title2</p>
               <input
                 className="t_input"
-                value={desc2}
-                onChange={(e) => setTitle(e.target.value)}
+                value={title2}
+                onChange={(e) => setTitle2(e.target.value)}
               />
             </div>
 
@@ -170,7 +180,7 @@ useEffect(() => {
 
 
             <br />
-            <button className="save_btn" onClick={handleSave}>Save Changes</button>
+            <button className="save_btn" onClick={save}>Save Changes</button>
 
           </section>
         </div>

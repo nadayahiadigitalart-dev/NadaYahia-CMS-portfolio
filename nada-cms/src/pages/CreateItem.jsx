@@ -11,6 +11,9 @@ import "../components/Proj_details.css";
 import Menu from "../components/Menu";
 import Header from "../components/Header";
 import TextEditorInput from "../components/TextEditorInput";
+
+
+
 const CreateItem = () => {
 
     
@@ -33,6 +36,13 @@ const CreateItem = () => {
         // console.log()
 
         const res = await Supabase.from("items").insert({"title": title})
+    }
+
+    async function save() {
+        const res = await Supabase.from("items").update({
+            "title": title, "title1":title1, "title2":title2, "desc1":desc1,
+"desc2":desc2, "images": image, "slug": slug, "meta": meta 
+        }).eq("id", id);
     }
 
 
@@ -133,8 +143,8 @@ const CreateItem = () => {
 
             <br />
             <button className="save_btn" 
-            // onClick={handleSave}
-            onClick={addItem}
+           
+            onClick={save}
             >Save Changes</button>
 
           </section>
