@@ -180,7 +180,7 @@ useEffect(() => {
 
 
             <br />
-            <button className="save_btn" onClick={save}>Save Changes</button>
+            <button className="save_btn" onClick={handleSave}>Save Changes</button>
 
           </section>
         </div>
