@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Supabase } from "../Supabase";
 import Project_details from "../components/Proj_details";
@@ -29,21 +29,59 @@ const CreateItem = () => {
     const [desc1, setDesc1] = useState("");
   const [desc2,setDesc2] = useState("");
     const [image, setImage] = useState("");
+    const [heroimg, setHimg] = useState("");
+
   
+    const [categories, setCategories] = useState([]);
+const [categoryId, setCategoryId] = useState("");
+
+const Navigate = useNavigate();
 
 
     async function addItem() {
         // console.log()
 
-        const res = await Supabase.from("items").insert({"title": title})
+        const res = await Supabase.from("projects").insert({"title": title})
     }
 
     async function save() {
-        const res = await Supabase.from("items").update({
+        const {data, error} = await Supabase.from("projects").insert({
             "title": title, "title1":title1, "title2":title2, "desc1":desc1,
-"desc2":desc2, "images": image, "slug": slug, "meta": meta 
-        }).eq("id", id);
+"desc2":desc2, "images": image,  "heroimg":heroimg, "slug": slug, "meta_desc": meta , category: categoryId 
+        })
+        .select();
+        // .eq("id", id)
+
+   console.log("Supabase response:", { data, error });
+
+  if (error) {
+    alert(error.message);
+    return;
+  }
+
+  alert("Project created successfully!");
+
+
+
+  // Navigate(`/projects/${data.id}`);
+  Navigate(`/projects/${data[0].id}`);
+
+
     }
+
+
+    useEffect(() => {
+  async function fetchCategories() {
+    const { data, error } = await Supabase
+      .from("Categories")
+      .select("*")
+      .order("title", { ascending: true });
+
+    if (!error) setCategories(data);
+  }
+
+  fetchCategories();
+}, []);
 
 
     return (<>
@@ -89,6 +127,24 @@ const CreateItem = () => {
               />
             </div>
 
+            <div className="text_input">
+  <p className="title">Category</p>
+
+  <select
+    className="t_input"
+    value={categoryId}
+    onChange={(e) => setCategoryId(e.target.value)}
+  >
+    <option value="">Select category</option>
+
+    {categories.map((cat) => (
+      <option key={cat.id} value={cat.id}>
+        {cat.title}
+      </option>
+    ))}
+  </select>
+</div>
+
 
              <div className="text_input">
               <p className="title">title1</p>
@@ -119,9 +175,9 @@ const CreateItem = () => {
             </div>
 
              <div className="image_input">
-              <p className="title"> Images</p>
+              <p className="title"> Hero Image</p>
               <p className="t_input"></p>
-              {image ? <img src={image} className="thumb-preview" /> : <p>No image</p>}
+              {image ? <img src={heroimg} className="thumb-preview" /> : <p>No image</p>}
               <input type="file" 
             //   onChange={handleImageChange} 
               />
@@ -145,6 +201,7 @@ const CreateItem = () => {
             <button className="save_btn" 
            
             onClick={save}
+            // onClick={() => Navigate(`/projects/${p.id}`)}
             >Save Changes</button>
 
           </section>

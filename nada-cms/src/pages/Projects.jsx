@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import ProjectCards from "../components/ProjectCards";
 import "./Projects.css";
 import { Supabase } from "../Supabase";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Projects = () => {
   const [newTitle, setNewTitle] = useState("");
@@ -24,7 +24,8 @@ const [showNewCard, setShowNewCard] = useState(false);
   // const [loading, setLoading] = useState(true);
 
 
-
+// const [categories, setCategories] = useState([]);
+const [categoryId, setCategoryId] = useState("");
 
 
 
@@ -62,7 +63,7 @@ useEffect(() => {
     const { data, error } = await Supabase
       .from("Categories")
       .select("title")
-      .order("id" ,{ ascending: false } );
+      .order("id" ,{ ascending: true } );
       // .order("created_at", { ascending: false });
 
 
@@ -76,17 +77,17 @@ useEffect(() => {
 
 
 useEffect(() => {
-  if (!activeCategory) return; // skip if not set yet
+  if (!activeCategory) return;
 
   async function fetchProjects() {
     const { data, error } = await Supabase
       .from("projects")
       .select("*")
       .order("id" ,{ ascending: true } )
-      .eq("category", activeCategory); // ✅ filter by selected category
+      .eq("category", activeCategory); 
 
     if (!error) {
-      setProjects(data || []); // ✅ ensure it's always an array
+      setProjects(data || []); 
     } else {
       console.error("Error fetching projects:", error);
     }
@@ -95,13 +96,27 @@ useEffect(() => {
   fetchProjects();
 }, [activeCategory]);
 
+// useEffect(() => {
+//   async function fetchCategories() {
+//     const { data, error } = await Supabase
+//       .from("Categories")
+//       .select("*")
+//       .order("title", { ascending: true });
+
+//     if (!error) setCategories(data);
+//   }
+
+//   fetchCategories();
+// }, []);
+
 async function deleteRow(id) {
   try {
     const { data: deletedData, error } = await Supabase
       .from("projects") 
       .delete()
-      .eq('id', id);
+      .eq('id', id)
       // .order("created_at", created_at)
+      .then(({ data }) => setProjects(data));
 
     if (error) {
       console.error("Delete failed:", error);
@@ -117,24 +132,6 @@ async function deleteRow(id) {
 // if (loading) return <p>Loading...</p>
 
 
-
-
-    // useEffect(()=>{
-        
-    // async function CallGetAPI() {
-    //     const projects = await Supabase.from("projects").select("*")
-    //     setProjects(projects.data);
-    //     // console.log(projects);
-
-    //     // {projects[0].category.map((c)=>{
-    //     //     return <p>{c}</p>
-    //     // })}
-    //     }
-
-    //      CallGetAPI();
-
-    // },[]
-    // )
 
   return (
     <div className="bg">
@@ -162,52 +159,7 @@ showCreate ? "show" : ""}`}>
   // <h3 className='date'>Create New Project</h3> */}
 
   
-  {/* <input
-    placeholder="Project title"
-    value={newTitle}
-    onChange={(e) => setNewTitle(e.target.value)}
-  />
-  <br />
-  <p className="date2">image size should be 342*246 px</p>
-  
-  <input
-    type="file"
-    accept="image/*"
-    onChange={(e) => {
-      if (e.target.files && e.target.files[0]) {
-        setNewImg(URL.createObjectURL(e.target.files[0]));
-      }
-    }}
-  />
-  <br /><br />
 
-  <button
-    onClick={() => {
-      // Simple check: must have title and image
-      if (newTitle.trim() && newImg) {
-        // Create new project object
-        const tempProject = {
-          id: Date.now(),                  // unique key
-          title: newTitle,
-          cover_img: newImg,               // uploaded image
-          desc: "",                         // optional
-          category: activeCategory,         // selected category
-          created_at: new Date().toLocaleString(), // for display
-        };
-
-        // Add to projects array
-        setProjects((prev) => [...prev, tempProject]);
-
-        // Hide create panel and reset inputs
-        setShowCreate(true);
-        setNewTitle("");
-        setNewImg("");
-      }
-    }}
-  >
-    Save
-  </button>
-</div> */}
 
           
           <div className="row_cat">
@@ -242,6 +194,7 @@ showCreate ? "show" : ""}`}>
                   t={p.title}
                   par={p.created_at}
                   onDelete={() => deleteRow(p.id)}
+                  onClick={() => Navigate(`/projects/${p.id}`)}
                   id={`/projects/${p.id}`} 
                 />
 
